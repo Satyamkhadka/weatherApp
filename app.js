@@ -10,11 +10,12 @@ window.addEventListener('load',()=>{
         navigator.geolocation.getCurrentPosition(position=>{
            long = position.coords.longitude;
            lat=position.coords.latitude; 
-        //const proxy= 'http://cors-anywhere.herokuapp.com/';
-           //const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767721ad1/${lat},${long}`;
+        const proxy= 'http://cors-anywhere.herokuapp.com/';
+           const api = `${proxy}https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767721ad1/${lat},${long}`;
             const api = `https://api.darksky.net/forecast/fd9d9c6418c23d94745b836767721ad1/${lat},${long}`;
             //fetch(request, {mode: 'cors'});
-            fetch(api,{mode:'no-cors'}).then(response=>{
+            fetch(api).then(response=>{
+		    console.log(api);
                return response.json();
            }).then(data=>{
             console.log(data);
